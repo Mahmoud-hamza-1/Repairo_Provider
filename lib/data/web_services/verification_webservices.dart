@@ -1,7 +1,7 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-import 'package:repairo_provider/constants/strings.dart';
+import 'package:repairo_provider/core/constants/app_constants.dart';
 
 class VerificationWebservices {
   Future<Map<String, dynamic>> verifyNumber(String phone, String code) async {
@@ -11,16 +11,11 @@ class VerificationWebservices {
 
     var request = http.MultipartRequest(
       'POST',
-      Uri.parse(
-        'http://192.168.124.51:8000/api/technician/authentication/check-code',
-      ),
+      Uri.parse('${AppConstants.baseUrl}/technician/authentication/check-code'),
     );
     print(" ver---8");
 
-    request.fields.addAll({
-      'phone': phone,
-      'code': code, // استخدم المتغير المُمرّر، وليس "0000" ثابتة
-    });
+    request.fields.addAll({'phone': phone, 'code': code});
     print(" ver---9");
 
     request.headers.addAll(headers);
@@ -36,8 +31,8 @@ class VerificationWebservices {
       print(" ver---11");
       final data = jsonDecode(responseBody);
       final accessToken = data['data']['access_token'];
-      globalAccessToken = accessToken;
-      print(globalAccessToken);
+      AppConstants.globalAccessToken = accessToken;
+      print(AppConstants.globalAccessToken);
 
       return jsonDecode(responseBody);
     } else {
@@ -46,24 +41,3 @@ class VerificationWebservices {
     }
   }
 }
-
-    // print("ver ---6");
-
-    // final response = await http.post(
-    //   Uri.parse(
-    //     'http://192.168.171.51:8000/api/user/authentication/check-code',
-    //   ),
-    //   body: {'phone': phone, 'code': code},
-    // );
-    // print("ver ---7");
-
-    // if (response.statusCode == 200) {
-    //   print("successsssss");
-    //   final data = jsonDecode(response.body);
-    //   print(data.toString());
-    //   return data;
-    // } else {
-    //   print("Error happened");
-    //   throw Exception('Login failed');
-    // }
- 

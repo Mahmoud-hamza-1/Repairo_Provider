@@ -123,7 +123,7 @@ class Verification extends StatelessWidget {
                     const SizedBox(height: 70),
                     CustomElevatedButton(
                       onpressed: () {
-                        Navigator.pushNamed(context, 'edit_profile');
+                        //Navigator.pushNamed(context, 'edit_profile');
                       },
                       text: 'Confirm',
                     ),

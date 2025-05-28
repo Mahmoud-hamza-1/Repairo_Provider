@@ -9,7 +9,6 @@ class AuthRepository {
 
   Future<UserLog> login(String phone) async {
     final data = await authWebService.login(phone);
-
     return UserLog.fromJson(data);
   }
 }
