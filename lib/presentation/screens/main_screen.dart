@@ -24,13 +24,9 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   void initState() {
-    // getLocation();
-
     super.initState();
-
     _pages = [const HomeScreen(), ProfileScreen()];
   }
-
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(

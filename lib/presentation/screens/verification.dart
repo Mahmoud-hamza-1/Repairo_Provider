@@ -15,7 +15,7 @@ class Verification extends StatelessWidget {
     return BlocListener<VerificationCubit, VerificationStates>(
       listener: (context, state) {
         if (state is VerificationSuccess) {
-          Navigator.pushNamed(context, "MultiStepProfileScreen");
+          Get.toNamed("MultiStepProfileScreen");
         }
         if (state is VerificationLoading) {
           Get.defaultDialog(
@@ -94,10 +94,7 @@ class Verification extends StatelessWidget {
                       },
                       //runs when every textfield is filled
                       onSubmit: (String verificationCode) async {
-                        print("submitttttttt");
-
                         final prefs = await SharedPreferences.getInstance();
-
                         var phone = prefs.getString('phone');
 
                         context.read<VerificationCubit>().verify(

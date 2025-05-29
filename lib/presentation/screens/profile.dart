@@ -8,6 +8,7 @@ import 'package:repairo_provider/business_logic/ProfileCubit/profile_cubit.dart'
 import 'package:repairo_provider/business_logic/ProfileCubit/profile_states.dart';
 import 'package:repairo_provider/core/constants/app_constants.dart';
 import 'package:repairo_provider/data/models/userprofile_model.dart';
+import 'package:repairo_provider/presentation/screens/edit_profile.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -24,7 +25,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   void initState() {
-    BlocProvider.of<ProfileCubit>(context).getUserData('any');
+    BlocProvider.of<ProfileCubit>(
+      context,
+    ).getUserData(AppConstants.globalAccessToken);
     super.initState();
   }
 
@@ -35,13 +38,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
         actions: [
           IconButton(
             onPressed: () {
-              // Get.to(
-              //   () => EditProfileScreen(
-              //     name: uname ?? "",
-              //     address: uaddress ?? "",
-              //     image: uimage ?? "",
-              //   ),
-              // );
+              Get.to(
+                () => EditProfileScreen(
+                  name: uname ?? "",
+                  address: uaddress ?? "",
+                  image: uimage ?? "",
+                ),
+              );
 
               // Get.toNamed('editprofile');
             },
@@ -65,10 +68,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
           print("buildddd succeeed");
           userdata = (state).userdata;
           uname = userdata.name;
-          uaddress = userdata.address;
+          uaddress = userdata.place;
           uimage = userdata.image!.replaceFirst(
-            '127.0.0.1',
-            AppConstants.baseaddress,
+            'localhost',
+            '${AppConstants.baseaddress}:8000',
           );
           print(uname);
           print(uaddress);
@@ -102,8 +105,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       userdata.image!.isNotEmpty
                           ? NetworkImage(
                             userdata.image!.replaceFirst(
-                              '127.0.0.1',
-                              AppConstants.baseaddress,
+                              'localhost',
+                              '${AppConstants.baseaddress}:8000',
                             ),
                           )
                           : const AssetImage('assets/images/jpg/hamdan.jpg'),
@@ -134,13 +137,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       style: TextStyle(color: Colors.black, fontSize: 14),
                     )
                     : Text(
-                      "${userdata.address}",
+                      "${userdata.place}",
                       style: const TextStyle(color: Colors.black, fontSize: 14),
                     ),
-                Text(
-                  "${userdata.phone}",
-                  style: const TextStyle(color: Colors.black, fontSize: 14),
-                ),
+                // Text(
+                //   "${userdata.}",
+                //   style: const TextStyle(color: Colors.black, fontSize: 14),
+                // ),
               ],
             ),
           ),
@@ -183,13 +186,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 );
                 final prefs = await SharedPreferences.getInstance();
                 final url = Uri.parse(
-                  '${AppConstants.baseUrl}/user/authentication/logout',
+                  '${AppConstants.baseUrl}/technician/authentication/logout',
                 );
-                var token = prefs.getString('auth_token');
                 final response = await http.post(
                   url,
                   headers: {
-                    'Authorization': 'Bearer $token',
+                    'Authorization': 'Bearer ${AppConstants.globalAccessToken}',
                     'Content-Type': 'application/json',
                   },
                 );
@@ -201,7 +203,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   print(data.toString());
                   return data;
                 } else {
-                  print('Failed to get user info: ${response.statusCode}');
+                  print('Failed to log tech out: ${response.statusCode}');
                   throw Exception('logout failed');
                 }
               },

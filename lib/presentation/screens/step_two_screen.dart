@@ -153,7 +153,9 @@ class StepTwoWidgetState extends State<StepTwoWidget> {
                               .map(
                                 (category) => DropdownMenuItem<RCategoryData>(
                                   value: category,
-                                  child: Text(category.displayName ?? 'All'),
+                                  child: Text(
+                                    category.displayName ?? 'choose category',
+                                  ),
                                 ),
                               )
                               .toList(),
@@ -173,11 +175,11 @@ class StepTwoWidgetState extends State<StepTwoWidget> {
                   }
                   return DropdownButtonFormField<String>(
                     hint: Text("choose category"),
-                    value: 'All',
+                    value: 'choose category',
                     items: [
                       DropdownMenuItem<String>(
-                        value: 'All',
-                        child: Text('All'),
+                        value: 'choose category',
+                        child: Text('choose category'),
                       ),
                     ],
                     onChanged: (val) {},

@@ -1,13 +1,14 @@
 import 'package:http/http.dart' as http;
 import 'package:repairo_provider/core/constants/app_constants.dart';
 import 'dart:convert';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfileWebservices {
   Future<Map<String, dynamic>> getUserInfo(String token) async {
-    final prefs = await SharedPreferences.getInstance();
-    final url = Uri.parse('${AppConstants.baseUrl}/user/profile');
-    var token = prefs.getString('auth_token');
+    //final prefs = await SharedPreferences.getInstance();
+    final url = Uri.parse(
+      '${AppConstants.baseUrl}/technician/account/personal-info',
+    );
+    // var token = prefs.getString('auth_token');
     final response = await http.get(
       url,
       headers: {
@@ -25,7 +26,7 @@ class ProfileWebservices {
       return data;
     } else {
       print('Failed to get user info: ${response.statusCode}');
-      throw Exception('Login failed');
+      throw Exception('technician info failed');
     }
   }
 }

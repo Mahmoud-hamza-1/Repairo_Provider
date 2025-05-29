@@ -59,7 +59,7 @@ class LoginForm extends StatelessWidget {
                   const SizedBox(height: 20),
 
                   const Text(
-                    "Hello User !",
+                    "Hello Tech !",
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 16),

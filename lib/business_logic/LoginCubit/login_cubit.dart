@@ -25,21 +25,15 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   void login(String phone) async {
-    print("object--------1");
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('phone', phoneController.text);
 
-    print("object------2");
     emit(LoginLoading());
     try {
-      print("object--------3");
       final userlog = await authRepository.login(phone);
       emit(LoginSuccess(userlog));
-      print("object-------4");
       Get.back();
-      //await Future.delayed(const Duration(seconds: 2));
     } catch (e) {
-      print("object----------5");
       emit(LoginError(e.toString()));
     }
   }
