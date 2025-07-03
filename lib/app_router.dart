@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:repairo_provider/business_logic/AllCategoriesCubit/allcaterories_cubit.dart';
 import 'package:repairo_provider/business_logic/LoginCubit/login_cubit.dart';
+import 'package:repairo_provider/business_logic/NotificationCubit/notification_cubit.dart';
 import 'package:repairo_provider/business_logic/ProfileCubit/profile_cubit.dart';
 import 'package:repairo_provider/business_logic/ServiceCubit/service_cubit.dart';
 import 'package:repairo_provider/business_logic/StepOneCubit/step_one_cubit.dart';
@@ -11,6 +12,7 @@ import 'package:repairo_provider/business_logic/SubCategoryCubit/subcategory_cub
 import 'package:repairo_provider/business_logic/VerifyCubit/verification_cubit.dart';
 import 'package:repairo_provider/data/repository/categories_repository.dart';
 import 'package:repairo_provider/data/repository/login_repository.dart';
+import 'package:repairo_provider/data/repository/notificcation_repository.dart';
 import 'package:repairo_provider/data/repository/profile_repository.dart';
 import 'package:repairo_provider/data/repository/services_repository.dart';
 import 'package:repairo_provider/data/repository/step_one_repository.dart';
@@ -30,7 +32,9 @@ import 'package:repairo_provider/data/web_services/verification_webservices.dart
 import 'package:repairo_provider/presentation/screens/MultiStepsScreen.dart';
 import 'package:repairo_provider/presentation/screens/login_screen.dart';
 import 'package:repairo_provider/presentation/screens/main_screen.dart';
+import 'package:repairo_provider/presentation/screens/notification_screen.dart';
 import 'package:repairo_provider/presentation/screens/verification.dart';
+import 'package:repairo_provider/pusher_event.dart';
 
 class AppRouter {
   AppRouter() {}
@@ -74,6 +78,17 @@ class AppRouter {
                   ),
                 ],
                 child: MainScreen(),
+              ),
+        );
+      case 'notifications':
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create:
+                    (context) =>
+                        NotificationCubit(NotificationRepository())
+                          ..loadNotifications(),
+                child: NotificationPage(),
               ),
         );
 

@@ -1,5 +1,5 @@
 class AppConstants {
-  static const baseaddress = '192.168.124.20';
+  static const baseaddress = '192.168.90.51';
   static const baseUrl = 'http://$baseaddress:8000/api';
   static bool iscompleted = false;
   static var globalAccessToken = '';
