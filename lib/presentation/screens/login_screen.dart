@@ -30,7 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return const Scaffold(
       resizeToAvoidBottomInset: false, // يمنع تحريك العناصر عند ظهور
-      // body: LoginForm(),
+      body: LoginForm(),
     );
   }
 }
