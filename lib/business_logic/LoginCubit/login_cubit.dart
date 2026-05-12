@@ -1,0 +1,54 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:repairo_provider/business_logic/LoginCubit/login_states.dart';
+import 'package:repairo_provider/business_logic/VerifyCubit/verification_cubit.dart';
+import 'package:repairo_provider/data/repository/login_repository.dart';
+import 'package:repairo_provider/data/repository/verification_repository.dart';
+import 'package:repairo_provider/data/web_services/verification_webservices.dart';
+import 'package:repairo_provider/presentation/screens/verification.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+class LoginCubit extends Cubit<LoginState> {
+  final AuthRepository authRepository;
+  bool rememberMe = false;
+  bool hide = false;
+  final phoneController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  LoginCubit(this.authRepository) : super(LoginInitial());
+
+  void toggleRememberMe(bool value) {
+    rememberMe = value;
+    emit(LoginRememberMeChanged(rememberMe));
+  }
+
+  void togglePassHide() {
+    hide = !hide;
+    emit(LoginPassHideChanged(hide));
+  }
+
+  void login(String phone) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('phone', phoneController.text);
+    emit(LoginLoading());
+    try {
+      final userlog = await authRepository.login(phone);
+      emit(LoginSuccess(userlog));
+      Get.back();
+      // Get.toNamed('verification');
+      Get.to(
+        () => BlocProvider(
+          create:
+              (context) => VerificationCubit(
+                VerificationRepository(VerificationWebservices()),
+              ),
+          child: Verification(phone: phone),
+        ),
+      );
+    } catch (e) {
+      emit(LoginError(e.toString()));
+    }
+  }
+}

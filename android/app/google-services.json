@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "861744103788",
+    "project_id": "repairoapp-40ff8",
+    "storage_bucket": "repairoapp-40ff8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:861744103788:android:9f9fe4bc027961410f7349",
+        "android_client_info": {
+          "package_name": "com.ddd.ddd"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWi32oV4UqLqqJFT1kCQtcrL-4sgMk6NE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:861744103788:android:2a76561a48d369050f7349",
+        "android_client_info": {
+          "package_name": "com.example.breaking_project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWi32oV4UqLqqJFT1kCQtcrL-4sgMk6NE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:861744103788:android:eb355f6d540b0e830f7349",
+        "android_client_info": {
+          "package_name": "com.example.repairo_provider"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWi32oV4UqLqqJFT1kCQtcrL-4sgMk6NE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
