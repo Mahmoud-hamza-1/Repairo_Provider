@@ -5,6 +5,8 @@ import 'package:repairo_provider/business_logic/ProfileCubit/profile_cubit.dart'
 import 'package:repairo_provider/business_logic/ProfileCubit/profile_states.dart';
 
 class WalletPage extends StatefulWidget {
+  const WalletPage({super.key});
+
   @override
   State<WalletPage> createState() => _WalletPageState();
 }

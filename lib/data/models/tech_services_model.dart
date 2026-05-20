@@ -9,15 +9,13 @@ class TechServices {
     success = json['success'];
     message = json['message'];
     data =
-        json['data'] != null
-            ? new RTechServicesData.fromJson(json['data'])
-            : null;
+        json['data'] != null ? RTechServicesData.fromJson(json['data']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['success'] = this.success;
-    data['message'] = this.message;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['success'] = success;
+    data['message'] = message;
     if (this.data != null) {
       data['data'] = this.data!.toJson();
     }
@@ -38,17 +36,17 @@ class RTechServicesData {
     if (json['services'] != null) {
       services = <Services>[];
       json['services'].forEach((v) {
-        services!.add(new Services.fromJson(v));
+        services!.add(Services.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['category_id'] = this.categoryId;
-    data['sub_category_ids'] = this.subCategoryIds;
-    if (this.services != null) {
-      data['services'] = this.services!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['category_id'] = categoryId;
+    data['sub_category_ids'] = subCategoryIds;
+    if (services != null) {
+      data['services'] = services!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -66,9 +64,9 @@ class Services {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['service_id'] = this.serviceId;
-    data['price'] = this.price;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['service_id'] = serviceId;
+    data['price'] = price;
     return data;
   }
 }

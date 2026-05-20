@@ -74,7 +74,7 @@ class _InvoiceDetailsPageState extends State<InvoiceDetailsPage> {
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       elevation: 4,
-      shadowColor: Colors.teal.withOpacity(0.2),
+      shadowColor: Colors.teal.withValues(alpha: 0.2),
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(

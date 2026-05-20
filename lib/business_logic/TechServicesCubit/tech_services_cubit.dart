@@ -1,9 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:repairo_provider/business_logic/TechServicesCubit/tech_services_states.dart';
-import 'package:repairo_provider/business_logic/planDataCubit/plan_data_states.dart';
-import 'package:repairo_provider/data/models/plan_details_model.dart';
 import 'package:repairo_provider/data/models/tech_services_model.dart';
-import 'package:repairo_provider/data/repository/plan_details_repository.dart';
 import 'package:repairo_provider/data/repository/tech_services_repository.dart';
 
 // class TechServicesCubit extends Cubit<TechServicesStates> {

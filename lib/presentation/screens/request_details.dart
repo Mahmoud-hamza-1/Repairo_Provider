@@ -124,7 +124,7 @@ class _RequestDetailsScreenState extends State<RequestDetailsScreen> {
                     Container(
                       width: 2,
                       height: 40,
-                      color: color.withOpacity(0.5),
+                      color: color.withValues(alpha: 0.5),
                       margin: const EdgeInsets.symmetric(vertical: 4),
                     )
                   else

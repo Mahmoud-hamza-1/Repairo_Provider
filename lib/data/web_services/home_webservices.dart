@@ -10,12 +10,12 @@ class HomeWebservices {
   final Location location = Location();
 
   Future<void> getLocation() async {
-    bool _serviceEnabled;
+    bool serviceEnabled;
 
-    _serviceEnabled = await location.serviceEnabled();
-    if (!_serviceEnabled) {
-      _serviceEnabled = await location.requestService();
-      if (!_serviceEnabled) return;
+    serviceEnabled = await location.serviceEnabled();
+    if (!serviceEnabled) {
+      serviceEnabled = await location.requestService();
+      if (!serviceEnabled) return;
     }
 
     _permissionGranted = await location.hasPermission();

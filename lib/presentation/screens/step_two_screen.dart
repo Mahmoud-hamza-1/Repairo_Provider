@@ -520,7 +520,7 @@ class StepTwoWidgetState extends State<StepTwoWidget> {
                       textDirection: TextDirection.rtl,
                       child: DropdownButtonFormField<RCategoryData>(
                         decoration: _inputDecoration("اختر فئة رئيسية"),
-                        value: selectedMainCategory,
+                        initialValue: selectedMainCategory,
                         items:
                             categories
                                 .map(
@@ -577,7 +577,7 @@ class StepTwoWidgetState extends State<StepTwoWidget> {
                             const SizedBox(height: 8),
                             DropdownButtonFormField<RSubCategoryData>(
                               decoration: _inputDecoration("اختر فئة فرعية"),
-                              value: selectedSubCategory,
+                              initialValue: selectedSubCategory,
                               items:
                                   state.subcategories
                                       .map(

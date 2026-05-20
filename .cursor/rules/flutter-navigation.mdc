@@ -1,0 +1,32 @@
+---
+description: Navigation conventions for Repairo Provider
+globs: lib/**/*.dart
+alwaysApply: false
+---
+
+# Navigation
+
+- Root: `GetMaterialApp` in `main.dart` with `onGenerateRoute: appRouter.generateRoute` and `initialRoute: 'login'`.
+- Top-level flows → add a `case` in `lib/app_router.dart` with required `BlocProvider`s.
+- Flows needing constructor args → `Get.to(() => BlocProvider(..., child: Screen(...)))`.
+
+## Subscription plans route pattern
+
+```dart
+case 'subscription_plans':
+  return MaterialPageRoute(
+    builder: (_) => MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => AllplansCubit(PlansRepository(plansWebservice: PlansWebservice()))),
+        BlocProvider(create: (_) => SubscriptionCubit(SubscriptionPlanRepository(SubscriptionPlanWebservice()))),
+      ],
+      child: SubscriptionPlansScreen(), // from subscriptions_screen.dart
+    ),
+  );
+```
+
+Mirror this when fixing `pushNamed('subscription_plans')` from `main_screen.dart`.
+
+## Auth token
+
+Stored in `SharedPreferences` key `auth_token`. Also mirrored in `AppConstants.globalAccessToken` during migration—prefer repository/cubit access for new code.

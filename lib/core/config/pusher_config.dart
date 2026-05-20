@@ -1,12 +1,8 @@
 // ignore_for_file: non_constant_identifier_names
 
-import 'dart:convert';
 import 'dart:developer';
 
-import 'package:http/http.dart' as http;
 import 'package:pusher_channels_flutter/pusher_channels_flutter.dart';
-import 'package:repairo_provider/core/constants/app_constants.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class PusherConfig {
   late PusherChannelsFlutter _pusher;

@@ -1,0 +1,16 @@
+---
+description: Scope and quality bar for edits in this repo
+alwaysApply: true
+---
+
+# Change discipline
+
+- Match existing patterns in the file you edit (imports, cubit naming, Arabic UI strings).
+- Do not commit secrets (API keys, Firebase keys)—use `--dart-define` or local config documented in README.
+- Do not edit `.cursor/plans/` plan files unless the user asks.
+- After routing or `main.dart` changes, verify route names match exactly (e.g. `login`, not typos).
+- Run `flutter analyze` on touched areas; fix **warnings** you introduce.
+- `flutter_launcher_icons` belongs in `dev_dependencies`, not `dependencies`.
+- Explicit `bloc` package is required when importing `package:bloc/bloc.dart` directly.
+
+When implementing the phased cleanup plan: complete phases in order; do not mix large DI refactors with webservice migrations in one PR.

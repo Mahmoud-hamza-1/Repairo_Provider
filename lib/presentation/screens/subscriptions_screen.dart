@@ -19,6 +19,8 @@ import 'package:repairo_provider/presentation/widgets/custom_elevated_button.dar
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SubscriptionPlansScreen extends StatefulWidget {
+  const SubscriptionPlansScreen({super.key});
+
   @override
   State<SubscriptionPlansScreen> createState() =>
       _SubscriptionPlansScreenState();

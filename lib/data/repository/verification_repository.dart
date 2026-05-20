@@ -9,7 +9,7 @@ class VerificationRepository {
 
   Future<User> verifyNumber(String phone, String code, String fcm) async {
     final prefs = await SharedPreferences.getInstance();
-    final String? fcmm = await prefs.getString('fcm');
+    final String? fcmm = prefs.getString('fcm');
     final data = await verificationWebservices.verifyNumber(
       phone,
       code,

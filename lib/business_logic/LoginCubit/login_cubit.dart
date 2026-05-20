@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:repairo_provider/business_logic/LoginCubit/login_states.dart';
 import 'package:repairo_provider/business_logic/VerifyCubit/verification_cubit.dart';
 import 'package:repairo_provider/data/repository/login_repository.dart';

@@ -1,0 +1,24 @@
+---
+description: Data layer and API conventions
+globs: lib/data/**/*
+alwaysApply: false
+---
+
+# Data layer
+
+Flow: **WebService → Repository → Cubit → Screen**.
+
+- New API calls: add method on `*_webservice.dart`, wrap in `*_repository.dart`, expose via cubit.
+- Base URL: `AppConfig.baseUrl` after init, or `AppConstants.baseUrl` (aliased during transition). Never hardcode `repairo.icu` in new files.
+- Auth header: `Authorization: Bearer <token>` via shared `ApiClient` in `lib/core/network/` when present; do not duplicate header maps in every webservice.
+- Use `AppConstants.connectionTimeout` / `receiveTimeout` for HTTP clients.
+
+## File naming
+
+- `*_webservice.dart` / `*_webservices.dart` (existing mix—match sibling files in the same folder)
+- `*_repository.dart`
+- Models in `lib/data/models/`
+
+## Typos (do not propagate in new code)
+
+Existing folders use `Notiffications`, `allcaterories`, `requset_details_repository`—rename only in dedicated refactor PRs, not drive-by.

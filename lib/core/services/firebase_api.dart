@@ -1,7 +1,6 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:repairo_provider/business_logic/UpdateRequestCubit/update_request_cubit.dart';
 import 'package:repairo_provider/data/repository/update_request_repository.dart';
 import 'package:repairo_provider/data/web_services/update_request_webservice.dart';

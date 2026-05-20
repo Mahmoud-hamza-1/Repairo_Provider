@@ -42,11 +42,11 @@ class AccountStatusData {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['step'] = this.step;
-    data['status'] = this.status;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['step'] = step;
+    data['status'] = status;
     data['subscription_status'] =
-        this.subscriptionStatus; // Adjusted toJson method
+        subscriptionStatus; // Adjusted toJson method
     return data;
   }
 }

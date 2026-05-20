@@ -8,7 +8,7 @@ class SubscriptionApiService {
 
   // ملاحظة: يجب أن تحصل على التوكن من مكان آمن (مثل SharedPreferences)
   // وليس مكتوبًا بشكل ثابت هنا.
-  final String _token = "${AppConstants.globalAccessToken}";
+  final String _token = AppConstants.globalAccessToken;
 
   // API 1: جلب كل باقات الاشتراك
   // في ملف subscription_api_service.dart

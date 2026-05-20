@@ -164,7 +164,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           children: [
             Column(
               children: [
-                Container(
+                SizedBox(
                   width: double.infinity,
                   height: 200.h,
                   child: Image.asset(
@@ -276,7 +276,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
                             await prefs.setString(
                               'tech_name',
-                              "${namecontroller.text}",
+                              namecontroller.text,
                             );
 
                             print(' تم التحديث بنجاح');
@@ -467,7 +467,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               'USA',
               'Germany',
               'UAE',
-            ].map((e) => DropdownMenuItem(child: Text(e), value: e)).toList(),
+            ].map((e) => DropdownMenuItem(value: e, child: Text(e))).toList(),
         onChanged: (val) {},
       ),
     );

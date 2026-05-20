@@ -754,7 +754,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               );
             } else if (state is AllstatisticsLoaded) {
-              final RStatisticsData? stats = state.statistics;
+              final RStatisticsData stats = state.statistics;
 
               if (stats == null) {
                 return Center(

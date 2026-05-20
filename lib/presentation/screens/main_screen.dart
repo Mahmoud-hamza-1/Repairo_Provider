@@ -93,8 +93,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 class MainScreen extends StatefulWidget {
   final bool isSubscribed; // تم إضافة برامتر اختياري جديد
 
-  MainScreen({Key? key, this.isSubscribed = false})
-    : super(key: key); // تم تعديل الـ Constructor
+  const MainScreen({
+    super.key,
+    this.isSubscribed = false,
+  }); // تم تعديل الـ Constructor
 
   @override
   _MainScreenState createState() => _MainScreenState();
@@ -275,7 +277,10 @@ class _MainScreenState extends State<MainScreen> {
             ),
             color: Colors.white,
             boxShadow: [
-              BoxShadow(blurRadius: 20, color: Colors.black.withOpacity(.1)),
+              BoxShadow(
+                blurRadius: 20,
+                color: Colors.black.withValues(alpha: .1),
+              ),
             ],
           ),
           child: SafeArea(

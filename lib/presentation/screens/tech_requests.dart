@@ -270,6 +270,8 @@ import 'package:repairo_provider/data/web_services/update_request_webservice.dar
 import 'package:repairo_provider/presentation/screens/request_details.dart';
 
 class TechRequests extends StatefulWidget {
+  const TechRequests({super.key});
+
   @override
   TechRequestsState createState() => TechRequestsState();
 }
@@ -443,7 +445,7 @@ class TechRequestsState extends State<TechRequests>
                     ),
                     SizedBox(width: 4.w),
                     Text(
-                      '${request.service?.name ?? "غير معروف"}',
+                      request.service?.name ?? "غير معروف",
                       style: TextStyle(
                         fontSize: 14,
                         //fontWeight: FontWeight.bold,
@@ -571,7 +573,7 @@ class TechRequestsState extends State<TechRequests>
                     ),
                     SizedBox(width: 4.w),
                     Text(
-                      '${request.user?.name ?? "غير معروف"}',
+                      request.user?.name ?? "غير معروف",
                       style: TextStyle(
                         fontSize: 14,
                         // fontWeight: FontWeight.bold,

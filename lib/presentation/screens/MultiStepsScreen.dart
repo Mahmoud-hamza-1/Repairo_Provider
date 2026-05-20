@@ -19,7 +19,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class MultiStepsScreen extends StatefulWidget {
   final bool? isSubscribed;
-  MultiStepsScreen({super.key, this.isSubscribed});
+  const MultiStepsScreen({super.key, this.isSubscribed});
   @override
   State<MultiStepsScreen> createState() => MultiStepsScreenState();
 }

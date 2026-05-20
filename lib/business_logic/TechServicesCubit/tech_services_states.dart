@@ -1,4 +1,3 @@
-import 'package:repairo_provider/data/models/plan_details_model.dart';
 import 'package:repairo_provider/data/models/tech_services_model.dart';
 
 abstract class TechServicesStates {}

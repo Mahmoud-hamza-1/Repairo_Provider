@@ -9,13 +9,13 @@ import 'package:repairo_provider/core/services/firebase_api.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
+/// أثناء انتظار Firebase تظهر شاشة تشغيل أندرويد الأصلية (اللوغو) ثم أول إطار يفتح مباشرة على تسجيل الدخول.
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  //  final notificationRepo = NotificationRepository();
-  //final notificationCubit = NotificationCubit(notificationRepo);
+  if (Firebase.apps.isEmpty) {
+    await Firebase.initializeApp();
+  }
   await FirebaseApi().initNotiffications();
-
   runApp(BreakingBadApp(appRouter: AppRouter(), navigatorKey: navigatorKey));
 }
 
@@ -32,7 +32,7 @@ class BreakingBadApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(375, 812), // مقاس التصميم الأساسي (مثلاً iPhone X)
+      designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {

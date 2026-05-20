@@ -28,7 +28,7 @@ class Address {
 
 class TechLocationsScreen extends StatefulWidget {
   final String id;
-  TechLocationsScreen({Key? key, required this.id}) : super(key: key);
+  const TechLocationsScreen({super.key, required this.id});
 
   @override
   TechLocationsScreenState createState() => TechLocationsScreenState();

@@ -29,11 +29,10 @@ class MainServices {
   }
 
   static Future<File?> pickDocumentFile() async {
-    var pickedImage = await FilePicker.platform.pickFiles(
+    var pickedImage = await FilePicker.pickFiles(
       allowMultiple: false,
       type: FileType.custom,
       allowedExtensions: ['docx', 'doc', 'pdf'],
-      allowCompression: true,
     );
     if (pickedImage != null) {
       return File(pickedImage.files.first.path!);

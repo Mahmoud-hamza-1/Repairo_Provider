@@ -17,6 +17,8 @@ import 'package:repairo_provider/presentation/widgets/custom_elevated_button.dar
 import 'package:shared_preferences/shared_preferences.dart';
 
 class NotificationsScreen extends StatefulWidget {
+  const NotificationsScreen({super.key});
+
   @override
   State<NotificationsScreen> createState() => _NotificationsScreenState();
 }

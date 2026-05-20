@@ -29,6 +29,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shimmer/shimmer.dart';
 
 class ProfileScreen extends StatefulWidget {
+  const ProfileScreen({super.key});
+
   @override
   _ProfileScreenState createState() => _ProfileScreenState();
 }
@@ -151,7 +153,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             Icons.dark_mode,
             "الوضع الليلي",
             trailing: Switch(
-              activeColor: Colors.teal,
+              activeThumbColor: Colors.teal,
               value: isDarkMode,
               onChanged: (val) {
                 setState(() {
@@ -284,19 +286,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   throw Exception('logout failed');
                 }
               },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.redAccent,
+                minimumSize: const Size(double.infinity, 50),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
               child: const Text(
                 "تسجيل الخروج",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16,
                   fontFamily: "Cairo",
-                ),
-              ),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.redAccent,
-                minimumSize: const Size(double.infinity, 50),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
                 ),
               ),
             ),

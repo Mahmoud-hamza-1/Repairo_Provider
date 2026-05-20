@@ -395,13 +395,13 @@ class ChattingScreen extends StatefulWidget {
   final String username;
   final String userimage;
   const ChattingScreen({
-    Key? key,
+    super.key,
     required this.requestId,
     required this.currentUser,
     required this.tech_id,
     required this.username,
     required this.userimage,
-  }) : super(key: key);
+  });
 
   @override
   State<ChattingScreen> createState() => _ChattingScreenState();
@@ -424,7 +424,7 @@ class _ChattingScreenState extends State<ChattingScreen> {
   }
 
   void onEvent(PusherEvent event) {
-    print("event came: " + event.data.toString());
+    print("event came: ${event.data}");
     try {
       print(event.eventName.toString());
       if (event.eventName == r"chat") {
@@ -775,8 +775,7 @@ class MessageBubble extends StatelessWidget {
   final Messages message;
   final bool isMe;
 
-  const MessageBubble({Key? key, required this.message, required this.isMe})
-    : super(key: key);
+  const MessageBubble({super.key, required this.message, required this.isMe});
 
   @override
   Widget build(BuildContext context) {

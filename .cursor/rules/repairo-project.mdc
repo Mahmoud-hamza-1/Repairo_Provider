@@ -1,0 +1,40 @@
+---
+description: Repairo Provider app context, architecture, and known pitfalls
+alwaysApply: true
+---
+
+# Repairo Provider
+
+Flutter **technician/provider** app (`repairo_provider`). API base: `https://repairo.icu/api` via `AppConstants` in `lib/core/constants/app_constants.dart`.
+
+## Layout
+
+- `lib/presentation/` — screens & widgets (no raw `http` calls; use cubit → repository)
+- `lib/business_logic/` — Cubits/Blocs (`flutter_bloc`)
+- `lib/data/` — models, repositories, web_services
+- `lib/core/` — constants, config, services (Firebase, Pusher)
+- `lib/app_router.dart` — named routes for top-level flows
+- `lib/main.dart` — `GetMaterialApp`, Firebase init, `RepairoProviderApp`
+
+## Stack
+
+GetX navigation (`Get.to`, `Get.toNamed`) + `AppRouter.generateRoute`. State: **Cubit/Bloc**. HTTP: mostly `package:http` (some Dio). Realtime chat: Pusher. Maps: flutter_map. Locale: ar/en, Cairo/Google Fonts.
+
+## Do not
+
+- Add files named `* copy.dart` or duplicate screen classes
+- Register routes only in one place: extend `AppRouter` for `pushNamed`/`Get.toNamed` strings
+- Introduce a second API base config without wiring `AppConfig.init()` in `main()`
+- Use `BreakingBadApp` or placeholder class names for the root widget
+
+## Canonical screens
+
+- Subscription plans UI: `subscriptions_screen.dart` → `SubscriptionPlansScreen` (StatefulWidget)
+- Legacy/unused bloc-based plans UI: `subscription_plans_screen.dart` → `LegacySubscriptionPlansView` (do not import for new features)
+- Chat: `chatting_screen.dart` only (not a copy file)
+
+## Active named routes (extend in `app_router.dart`)
+
+`login`, `mainscreen`, `MultiStepProfileScreen`, `subscription_plans`, `verification`
+
+Detail screens with IDs (request, chat, locations) use `Get.to(() => ...)` with `BlocProvider`, not named routes.

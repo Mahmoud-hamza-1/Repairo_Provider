@@ -56,7 +56,7 @@ class StepOneWidgetState extends State<StepOneWidget> {
   }
 
   Future<void> pickImage() async {
-    final result = await FilePicker.platform.pickFiles(type: FileType.image);
+    final result = await FilePicker.pickFiles(type: FileType.image);
     if (result != null && result.files.single.path != null) {
       setState(() {
         selectedImage = File(result.files.single.path!);
@@ -302,7 +302,7 @@ class StepOneWidgetState extends State<StepOneWidget> {
     required ValueChanged<String?> onChanged,
   }) {
     return DropdownButtonFormField<String>(
-      value: value,
+      initialValue: value,
       onChanged: onChanged,
       decoration: _buildInputDecoration(label, icon),
       style: const TextStyle(fontFamily: "Cairo", color: Colors.black87),

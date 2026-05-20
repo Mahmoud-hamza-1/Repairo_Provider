@@ -1,0 +1,22 @@
+---
+description: UI layer conventions for screens and widgets
+globs: lib/presentation/**/*
+alwaysApply: false
+---
+
+# Presentation layer
+
+- Screens in `lib/presentation/screens/`, shared widgets in `lib/presentation/widgets/`.
+- Use `flutter_screenutil` (.w, .h, .sp) consistent with existing screens.
+- Theme: teal primary, Cairo/`GoogleFonts.cairo`, scaffold white—match `main.dart` ThemeData.
+
+## Rules
+
+- **No** `import 'package:http/http.dart'` in screens—move HTTP to repository + cubit.
+- Provide cubits via `BlocProvider` at navigation site (router or `Get.to`), not inside unrelated widgets.
+- Prefer `BlocBuilder` / `BlocListener` over manual `setState` for API-driven UI.
+- Delete fully commented-out alternate implementations instead of leaving large dead blocks at file top.
+
+## Logging
+
+Use `debugPrint` guarded by `kDebugMode`, not `print`, in new or touched code.

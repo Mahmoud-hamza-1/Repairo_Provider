@@ -11,7 +11,6 @@ import 'package:repairo_provider/business_logic/VerifyCubit/verification_states.
 import 'package:repairo_provider/data/repository/account_status_repository.dart';
 import 'package:repairo_provider/data/web_services/account_status_webservice.dart';
 import 'package:repairo_provider/presentation/screens/staging.dart';
-import 'package:repairo_provider/presentation/widgets/custom_elevated_button.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Verification extends StatefulWidget {

@@ -11,15 +11,15 @@ class UserLocation {
     if (json['data'] != null) {
       data = <RUserLocationData>[];
       json['data'].forEach((v) {
-        data!.add(new RUserLocationData.fromJson(v));
+        data!.add(RUserLocationData.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['success'] = this.success;
-    data['message'] = this.message;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['success'] = success;
+    data['message'] = message;
     if (this.data != null) {
       data['data'] = this.data!.map((v) => v.toJson()).toList();
     }
@@ -45,12 +45,12 @@ class RUserLocationData {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['address'] = this.address;
-    data['lat'] = this.lat;
-    data['lng'] = this.lng;
-    data['type'] = this.type;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['address'] = address;
+    data['lat'] = lat;
+    data['lng'] = lng;
+    data['type'] = type;
     return data;
   }
 }

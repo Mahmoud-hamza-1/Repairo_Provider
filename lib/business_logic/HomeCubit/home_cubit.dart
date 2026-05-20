@@ -1,7 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:repairo_provider/business_logic/HomeCubit/home_states.dart';
 import 'package:repairo_provider/data/repository/home_repository.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeCubit extends Cubit<HomeStates> {
   final HomeRepository homeRepository;

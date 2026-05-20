@@ -333,7 +333,7 @@ class _PaymentScreenState extends State<PaymentScreen>
                             vertical: 6,
                           ),
                           decoration: BoxDecoration(
-                            color: Colors.teal.withOpacity(.08),
+                            color: Colors.teal.withValues(alpha: .08),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: Text(
@@ -444,7 +444,7 @@ class _PaymentScreenState extends State<PaymentScreen>
               children: [
                 Switch(
                   value: _saveCard,
-                  activeColor: Colors.white,
+                  activeThumbColor: Colors.white,
                   activeTrackColor: Colors.teal,
                   onChanged: (v) => setState(() => _saveCard = v),
                 ),
@@ -457,9 +457,9 @@ class _PaymentScreenState extends State<PaymentScreen>
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: Colors.teal.withOpacity(.06),
+                color: Colors.teal.withValues(alpha: .06),
                 borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: Colors.teal.withOpacity(.15)),
+                border: Border.all(color: Colors.teal.withValues(alpha: .15)),
               ),
               child: Row(
                 children: const [
