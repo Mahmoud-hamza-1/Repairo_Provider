@@ -256,7 +256,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dash/flutter_dash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:line_icons/line_icon.dart';
 import 'package:repairo_provider/business_logic/RequestDetailsCubit/request_details_cubit.dart';
 import 'package:repairo_provider/business_logic/TechRequestsCubit/tech_requests_cubit.dart';

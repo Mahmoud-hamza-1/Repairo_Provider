@@ -749,26 +749,51 @@ class _HomeScreenState extends State<HomeScreen> {
             } else if (state is AllstatisticsFailed) {
               return Center(
                 child: Text(
-                  "حدث خطأ ما يرجى المحاولة لاحقا ",
+                  state.message,
                   style: TextStyle(fontFamily: "Cairo"),
+                  textAlign: TextAlign.center,
                 ),
               );
             } else if (state is AllstatisticsLoaded) {
               final RStatisticsData stats = state.statistics;
-
-              if (stats == null) {
-                return Center(
-                  child: Text(
-                    " لا توجد إحصائيات لعرضها  ",
-                    style: TextStyle(fontFamily: "Cairo"),
-                  ),
-                );
-              }
               return SingleChildScrollView(
                 padding: const EdgeInsets.all(4),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    if (state.warningMessage != null)
+                      MaterialBanner(
+                        content: Text(
+                          state.warningMessage!,
+                          style: const TextStyle(fontFamily: 'Cairo'),
+                        ),
+                        leading: const Icon(
+                          Icons.info_outline,
+                          color: Colors.orange,
+                        ),
+                        backgroundColor: Colors.orange.shade50,
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              context.read<AllstatisticsCubit>().getAllstatistics(
+                                fromDate: fromDate == null
+                                    ? null
+                                    : "${fromDate!.year}-${fromDate!.month}-${fromDate!.day}",
+                                toDate: toDate == null
+                                    ? null
+                                    : "${toDate!.year}-${toDate!.month}-${toDate!.day}",
+                              );
+                            },
+                            child: const Text(
+                              'إعادة المحاولة',
+                              style: TextStyle(
+                                color: Colors.teal,
+                                fontFamily: 'Cairo',
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     if (isSubscribed == false)
                       MaterialBanner(
                         content: Text(

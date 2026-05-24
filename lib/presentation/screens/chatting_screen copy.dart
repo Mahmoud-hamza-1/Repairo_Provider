@@ -374,8 +374,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:http/http.dart' as http;
-import 'package:http/http.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pusher_channels_flutter/pusher_channels_flutter.dart';
 import 'package:repairo_provider/business_logic/ChatCubit/chat_states.dart';
@@ -383,7 +381,6 @@ import 'package:repairo_provider/core/config/pusher_config.dart';
 import 'package:repairo_provider/core/constants/app_constants.dart';
 import 'package:repairo_provider/core/services/main_services.dart';
 import 'package:repairo_provider/data/models/chatting_model.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../business_logic/ChatCubit/chat_cubit.dart';
 

@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:repairo_provider/business_logic/SubscriptionCubit/subscription_cubit.dart';
 import 'package:repairo_provider/business_logic/SubscriptionCubit/subscription_states.dart';
 import 'package:repairo_provider/presentation/widgets/custom_elevated_button.dart';

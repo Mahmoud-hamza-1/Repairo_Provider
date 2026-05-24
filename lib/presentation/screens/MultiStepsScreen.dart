@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:repairo_provider/business_logic/ProfileCubit/profile_cubit.dart';
 import 'package:repairo_provider/business_logic/StepOneCubit/step_one_cubit.dart';
 import 'package:repairo_provider/business_logic/StepOneCubit/step_one_states.dart';

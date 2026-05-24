@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:repairo_provider/business_logic/ChatCubit/chat_cubit.dart';
 import 'package:repairo_provider/business_logic/InvoiceCubit/invoice_cubit.dart';
@@ -14,9 +13,7 @@ import 'package:repairo_provider/data/repository/invoice_repository.dart';
 import 'package:repairo_provider/data/web_services/chat_webservice.dart';
 import 'package:repairo_provider/data/web_services/invoice_web_services.dart';
 import 'package:repairo_provider/presentation/screens/chatting_screen%20copy.dart';
-import 'package:repairo_provider/presentation/screens/chatting_screen.dart';
 import 'package:repairo_provider/presentation/screens/invoice_details.dart';
-import 'package:repairo_provider/presentation/widgets/custom_elevated_button.dart';
 
 class RequestDetailsScreen extends StatefulWidget {
   final String id;

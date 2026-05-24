@@ -57,11 +57,9 @@
 // }
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:location/location.dart';
 import 'package:repairo_provider/business_logic/AllCategoriesCubit/allcaterories_cubit.dart';
 import 'package:repairo_provider/core/constants/app_constants.dart';
 import 'package:repairo_provider/business_logic/HomeCubit/home_cubit.dart';
@@ -88,7 +86,6 @@ import 'package:repairo_provider/presentation/screens/home_screen.dart';
 import 'package:repairo_provider/presentation/screens/profile.dart';
 import 'package:repairo_provider/presentation/screens/tech_requests.dart';
 import 'package:repairo_provider/presentation/screens/tech_services.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class MainScreen extends StatefulWidget {
   final bool isSubscribed; // تم إضافة برامتر اختياري جديد

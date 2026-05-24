@@ -13,5 +13,10 @@ class AllstatisticsLoading extends AllstatisticsStates {}
 
 class AllstatisticsLoaded extends AllstatisticsStates {
   final RStatisticsData statistics;
-  AllstatisticsLoaded({required this.statistics});
+  final String? warningMessage;
+
+  AllstatisticsLoaded({
+    required this.statistics,
+    this.warningMessage,
+  });
 }

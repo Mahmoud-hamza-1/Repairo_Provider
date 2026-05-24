@@ -92,16 +92,39 @@ class RStatisticsData {
     required this.totalRevenues,
   });
 
+  static int _asInt(dynamic value) {
+    if (value == null) return 0;
+    if (value is int) return value;
+    if (value is num) return value.toInt();
+    if (value is String) {
+      return int.tryParse(value) ?? double.tryParse(value)?.toInt() ?? 0;
+    }
+    return 0;
+  }
+
+  factory RStatisticsData.empty() {
+    return RStatisticsData(
+      pendingRequests: 0,
+      acceptedRequests: 0,
+      ongoingRequests: 0,
+      completedRequests: 0,
+      rejectedRequests: 0,
+      canceledRequests: 0,
+      totalRequests: 0,
+      totalRevenues: 0,
+    );
+  }
+
   factory RStatisticsData.fromJson(Map<String, dynamic> json) {
     return RStatisticsData(
-      pendingRequests: json['pending_requests'] ?? 0,
-      acceptedRequests: json['accepted_requests'] ?? 0,
-      ongoingRequests: json['ongoing_requests'] ?? 0,
-      completedRequests: json['completed_requests'] ?? 0,
-      rejectedRequests: json['rejected_requests'] ?? 0,
-      canceledRequests: json['canceled_requests'] ?? 0,
-      totalRequests: json['total_requests'] ?? 0,
-      totalRevenues: json['total_revenues'] ?? 0,
+      pendingRequests: _asInt(json['pending_requests']),
+      acceptedRequests: _asInt(json['accepted_requests']),
+      ongoingRequests: _asInt(json['ongoing_requests']),
+      completedRequests: _asInt(json['completed_requests']),
+      rejectedRequests: _asInt(json['rejected_requests']),
+      canceledRequests: _asInt(json['canceled_requests']),
+      totalRequests: _asInt(json['total_requests']),
+      totalRevenues: _asInt(json['total_revenues']),
     );
   }
 

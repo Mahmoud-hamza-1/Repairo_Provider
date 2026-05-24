@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:http/http.dart' as http;
 import 'package:repairo_provider/business_logic/ProfileCubit/profile_cubit.dart';
 import 'package:repairo_provider/business_logic/ProfileCubit/profile_states.dart';
@@ -26,7 +25,6 @@ import 'package:repairo_provider/presentation/screens/subscriptions_screen.dart'
 import 'package:repairo_provider/presentation/screens/tech_locations.dart';
 import 'package:repairo_provider/presentation/screens/wallet.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:shimmer/shimmer.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
